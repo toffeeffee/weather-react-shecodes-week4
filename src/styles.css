@@ -1,8 +1,24 @@
 .App {
   font-family: sans-serif;
   text-align: center;
+  margin-top: 40px;
 }
 img {
   width: 120px;
   height: auto;
+}
+input{
+  height: 40px;
+  margin-bottom: 40px;
+}
+.searchBtn{
+  margin-left: 10px;
+  background-color: rgb(246, 174, 30);
+  border: rgb(255, 141, 2);
+  border-radius: 5px;
+  color: #fff;
+  width: 150px;
+}
+.searchBtn:Hover, .serchBtn:active, .searchBtn:focus{
+  background-color: chocolate;
 }

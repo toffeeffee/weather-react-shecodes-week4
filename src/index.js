@@ -1,5 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import "./styles.css";
 
 // import App from "./App";
 import Search from "./search";
@@ -12,6 +13,7 @@ root.render(
     <div className="App">
       <Search />
       <div className="forecast"> </div>
+      <p><a href="https://github.com/toffeeffee/weather-react-shecodes-week4">Open-source code</a>, by Iryna Komarova</p>
     </div>
   </StrictMode>
 );

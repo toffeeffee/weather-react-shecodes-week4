@@ -51,7 +51,7 @@ export default function Search() {
   return (
     <form onSubmit={submitSearch}>
       <input type="search" placeholder="Type a city" onChange={updateCity} />
-      <input type="submit" value="Search" />
+      <input type="submit" value="Search" className="searchBtn"/>
     </form>
   );
 }

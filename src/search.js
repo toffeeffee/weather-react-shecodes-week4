@@ -38,12 +38,16 @@ export default function Search() {
 
     if (city.length > 0) {
       // setTemperature(`Temperature: ${Math.round(temperature)}°C in ${city}`);
+      city = capitalizeFirstLetter(city);
       div.innerHTML = `<h4> In ${city} now:</h4> Temperature: ${Math.round(
         temperature
       )}°C <br /> Wind: ${wind} km/h <br /> Humidity: ${humidity} % <br /> ${description} <br />  <img src="${icon}" alt="Clear" id="icon" />`;
     } else {
       div.innerHTML = "Enter a city";
     }
+  }
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
   function updateCity(event) {
     setCity(event.target.value);

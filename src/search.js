@@ -10,6 +10,7 @@ export default function Search() {
   let [humidity, setHumidity] = useState(null);
   let [description, setDescription] = useState("");
   let [icon, setIcon] = useState("");
+  let [dateNow, setDateNow] = useState({ ready: false });
 
   function setTemperatureAndCoordinates(response) {
     setTemperature(response.data.main.temp);
@@ -24,6 +25,7 @@ export default function Search() {
   axios.get(urlCoord).then(getWeater);
 
   function getWeater(response) {
+    setDateNow(new Date(response.data.dt*1000));
     setWind(response.data.wind.speed);
     setHumidity(response.data.main.humidity);
     setDescription(response.data.weather[0].description);
@@ -32,6 +34,7 @@ export default function Search() {
     );
   }
 
+
   function submitSearch(event) {
     event.preventDefault();
     let div = document.querySelector(".forecast");
@@ -39,9 +42,23 @@ export default function Search() {
     if (city.length > 0) {
       // setTemperature(`Temperature: ${Math.round(temperature)}°C in ${city}`);
       city = capitalizeFirstLetter(city);
-      div.innerHTML = `<h4> In ${city} now:</h4> Temperature: ${Math.round(
-        temperature
-      )}°C <br /> Wind: ${wind} km/h <br /> Humidity: ${humidity} % <br /> ${description} <br />  <img src="${icon}" alt="Clear" id="icon" />`;
+     // let text = dateNow;
+     // let dataInput = text.substring(0, 21);
+
+      div.innerHTML = `
+      <div class="row">
+        <div class="col-6">
+          <h4>${city}</h4>
+          <div class="dat"> ${dateNow.toString().substring(0, 21)}</div>
+          <img src="${icon}" alt="Clear" id="icon" />
+        </div>
+        <div class="col-6">
+          <div class="temperature"><span>${Math.round(temperature)}</span><a href="#" id="celc">°C</a><a href="#" id="faran"> | F</a></div>
+          <div class="describe">Wind: <span>${wind} km/h </span></div>
+          <div class="describe">Humidity: <span>${humidity} % </span></div>
+          <div class="describe">${description}</div>
+        </div>
+      </div> `;
     } else {
       div.innerHTML = "Enter a city";
     }
@@ -49,6 +66,7 @@ export default function Search() {
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
+
   function updateCity(event) {
     setCity(event.target.value);
   }

@@ -18,7 +18,7 @@ export default function Search() {
     setLatitude(response.data.coord.lat);
   }
 
-  let api = "b35c686ba9565ba0ab254c2230937552";
+  let api = "5df0ea9be1dd987e858a137566a43888";
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${api}&units=metric`;
   axios.get(url).then(setTemperatureAndCoordinates);
   let urlCoord = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api}`;
@@ -44,7 +44,7 @@ export default function Search() {
       city = capitalizeFirstLetter(city);
      // let text = dateNow;
      // let dataInput = text.substring(0, 21);
-
+      icon = icon.toString().substring(0, icon.length-8)+"d@2x.png";
       div.innerHTML = `
       <div class="row">
         <div class="col-6">

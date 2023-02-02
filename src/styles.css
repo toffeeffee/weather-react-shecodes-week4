@@ -1,7 +1,9 @@
-.App {
-  font-family: sans-serif;
+.App{
   text-align: center;
   margin-top: 40px;
+}
+.container {
+  font-family: sans-serif;
   height: 460px;
   max-width: 600px;
   border: solid 2px rgb(246, 174, 30);

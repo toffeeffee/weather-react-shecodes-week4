@@ -11,9 +11,11 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <div className="App container">
-      <Search />
-      <div className="forecast"> </div>
+    <div className="App">
+      <div className="container">
+        <Search />
+        <div className="forecast"> </div>
+      </div> 
       <p><a href="https://github.com/toffeeffee/weather-react-shecodes-week4">Open-source code</a>, by Iryna Komarova</p>
     </div>
   </StrictMode>
